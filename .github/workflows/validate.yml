@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2024 Linutronix GmbH
+# SPDX-License-Identifier: 0BSD
+
+name: Validation
+on:
+  push:
+  schedule:
+    - cron: "37 2 * * *"
+
+jobs:
+  generate-matrix:
+    name: Generate Job Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "matrix=$(./scripts/collect_testcases.py)" >> "$GITHUB_OUTPUT"
+        id: set-matrix
+
+  build:
+    name: Build yanglint
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone https://github.com/CESNET/libyang.git
+      - run: mkdir build
+        working-directory: libyang
+      - run: cmake -D BUILD_SHARED_LIBS=OFF -S . -B build
+        working-directory: libyang
+      - run: cmake --build build
+        working-directory: libyang
+      - uses: actions/upload-artifact@master
+        with:
+          name: yanglint
+          path: |
+            libyang/build/yanglint
+
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    needs: [generate-matrix, build]
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        file: ${{fromJSON(needs.generate-matrix.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git submodule update --init --remote # update to newest upstream YANG models
+      - uses: actions/download-artifact@master
+        with:
+          name: yanglint
+          path: bin
+      - run: chmod a+x bin/yanglint
+      - run: echo "$( pwd )/bin" >> $GITHUB_PATH
+      - run: ./scripts/validate.py ${{ matrix.file }}
+
