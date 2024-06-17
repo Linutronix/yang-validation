@@ -188,8 +188,8 @@ In sched and slightly different in psfp. The operation makes numbers out of both
 If all leafs do not exist and thus are parsed as 0 or NaN (depending on interpretation, see above), the result should be NaN <= NaN which should be false!
 The invesion with not() gives true, so that is OK.
 
-HOWEVER, if the leafs do exist and the first two ones are still 0, it also gives NaN and thus with not() true, but shouldn't.
-Needs further investigation.
+Note that 0/0 (which would wrongly be considered as valid as well) is not possible when the leafs do exist due to the allowed range for the denominator (1..4294967295).
+
 
 ```
        list flow-meter-instance-table {
