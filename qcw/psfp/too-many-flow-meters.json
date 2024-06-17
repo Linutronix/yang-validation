@@ -1,0 +1,52 @@
+{
+  "ieee802-dot1q-bridge:bridges": {
+    "bridge": [
+      {
+        "name": "Test",
+        "address": "98-68-14-0c-8b-03",
+        "bridge-type": "customer-vlan-bridge",
+        "component": [
+          {
+            "name": "a",
+            "type": "d-bridge-component",
+            "ieee802-dot1q-psfp-bridge:flow-meters": {
+              "max-flow-meter-instances": 1,
+              "flow-meter-instance-table": [
+                {
+                  "flow-meter-instance-id": 3,
+		  "committed-information-rate": "18446744073709551615",
+		  "committed-burst-size": 2,
+		  "excess-information-rate": "2",
+		  "excess-burst-size": 2,
+		  "coupling-flag": "one",
+		  "color-mode": "color-blind",
+		  "drop-on-yellow": false
+                },
+                {
+                  "flow-meter-instance-id": 4,
+		  "committed-information-rate": "18446744073709551615",
+		  "committed-burst-size": 2,
+		  "excess-information-rate": "2",
+		  "excess-burst-size": 2,
+		  "coupling-flag": "one",
+		  "color-mode": "color-blind",
+		  "drop-on-yellow": false
+                },
+                {
+                  "flow-meter-instance-id": 5,
+		  "committed-information-rate": "18446744073709551615",
+		  "committed-burst-size": 2,
+		  "excess-information-rate": "2",
+		  "excess-burst-size": 2,
+		  "coupling-flag": "one",
+		  "color-mode": "color-blind",
+		  "drop-on-yellow": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

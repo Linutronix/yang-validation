@@ -6,9 +6,12 @@ models:
   - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
   - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
   - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
-  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched.yang
-  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched-bridge.yang
   - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-bridge.yang
-instance: ./qcw/minimal-interface.json
-expect_success: false
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-stream-filters-gates.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-stream-filters-gates-bridge.yang
+  - file: ./qcw/psfp/ieee802-dot1q-psfp@2024-06-17.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-psfp-bridge.yang
+instance: ./qcw/psfp/minimal-bridge.json
+expect_success: true
+
 

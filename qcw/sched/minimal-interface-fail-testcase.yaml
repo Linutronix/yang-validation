@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Linutronix GmbH
+# SPDX-License-Identifier: 0BSD
+
+models:
+  - file: ./models/standard/ieee/published/802/ieee802-types.yang
+  - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+  - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched-bridge.yang
+  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-bridge.yang
+instance: ./qcw/sched/minimal-interface.json
+expect_success: false
+

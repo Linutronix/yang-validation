@@ -1,0 +1,24 @@
+{
+  "ieee802-dot1q-bridge:bridges": {
+    "bridge": [
+      {
+        "name": "Test",
+        "address": "98-68-14-0c-8b-03",
+        "bridge-type": "customer-vlan-bridge",
+	"component": [
+	  {
+            "name": "a",
+            "type": "d-bridge-component",
+	    "ieee802-dot1q-psfp-bridge:stream-gates": {
+  	      "stream-gate-instance-table": [
+		{
+                  "stream-gate-instance-id": 3
+		}
+	      ]
+	    }
+	  }
+	]
+      }
+    ]
+  }
+}

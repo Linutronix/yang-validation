@@ -6,9 +6,9 @@ models:
   - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
   - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
   - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
-  - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched.yang
+  - file: ./qcw/sched/ieee802-dot1q-sched@2024-01-30.yang
   - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched-bridge.yang
   - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-bridge.yang
-instance: ./qcw/scheduled-interface.json
+instance: ./qcw/sched/scheduled-interface.json
 expect_success: true
 

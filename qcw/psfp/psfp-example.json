@@ -1,0 +1,79 @@
+{
+  "ieee802-dot1q-bridge:bridges": {
+    "bridge": [
+      {
+        "name": "Test",
+        "address": "98-68-14-0c-8b-03",
+        "bridge-type": "customer-vlan-bridge",
+        "component": [
+          {
+            "name": "a",
+            "type": "d-bridge-component",
+            "ieee802-dot1q-psfp-bridge:flow-meters": {
+              "max-flow-meter-instances": 2,
+              "flow-meter-instance-table": [
+                {
+                  "flow-meter-instance-id": 3,
+                  "committed-information-rate": "18446744073709551615",
+                  "committed-burst-size": 2,
+                  "excess-information-rate": "2",
+                  "excess-burst-size": 2,
+                  "coupling-flag": "one",
+                  "color-mode": "color-blind",
+                  "drop-on-yellow": false
+                },
+                {
+                  "flow-meter-instance-id": 4,
+                  "committed-information-rate": "18446744073709551615",
+                  "committed-burst-size": 2,
+                  "excess-information-rate": "2",
+                  "excess-burst-size": 2,
+                  "coupling-flag": "one",
+                  "color-mode": "color-blind",
+                  "drop-on-yellow": false
+                }
+              ]
+            },
+            "ieee802-dot1q-psfp-bridge:stream-gates": {
+                "supported-list-max": 3,
+                "supported-cycle-max": {
+                  "numerator": 3,
+                  "denominator": 3
+		},
+                "supported-interval-max": 3000000000,
+                "stream-gate-instance-table": [
+                {
+                  "stream-gate-instance-id": 3,
+                  "admin-control-list": {
+                    "gate-control-entry": [
+                      {
+                        "index": 0,
+			"operation-name": "ieee802-dot1q-psfp:set-gate-and-ipv",
+			"gate-state-value": "open",
+			"ipv-spec": "two"
+                      },
+                      {
+                        "index": 1,
+			"operation-name": "ieee802-dot1q-psfp:set-gate-and-ipv",
+			"gate-state-value": "closed",
+			"ipv-spec": "one"
+                      }
+		    ]
+                  },
+                  "admin-cycle-time": {
+                    "numerator": 3,
+                    "denominator": 3
+                  },
+                  "oper-cycle-time": {
+                    "numerator": 3,
+                    "denominator": 3
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
