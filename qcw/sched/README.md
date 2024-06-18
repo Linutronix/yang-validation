@@ -7,12 +7,9 @@ SPDX-License-Identifier: 0BSD
 
 `sched/minimal-interface.json`: Minimal interface instance
 
-`sched/minimal-interface-fail-testcase.yaml`: Testcase that fails with the instance above with the published YANG model.
-
-`sched/minimal-interface-success-testcase.yaml`: Testcase that runs successfully with the suggested changes in the maintenance request.
+`sched/minimal-interface-tests.yaml`: Testcases for the minimal interface instance before and after the suggested changes in the maintenance request.
 
 `sched/scheduled-interface.json`: Exemplary instance with scheduling configuration according to IEEE 802.1Qcw.
 
-`sched/scheduled-interface-before-testcase.yaml`: Successful testcase before the suggested change.
+`sched/scheduled-interface-tests.yaml`: Scheduled interface that is validated correctly before and after the suggested change.
 
-`sched/scheduled-interface-after-testcase.yaml`: Successful testcase after the suggested change.

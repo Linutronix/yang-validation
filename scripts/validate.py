@@ -8,37 +8,34 @@ import yaml
 import subprocess
 
 
-def run_testcase(yaml_file):
-    with open(yaml_file, "r") as f:
-        config = yaml.safe_load(f)
-
+def run_testcase(test):
     ## Find YAML modules
     yang_files = []
 
-    for model in config["models"]:
+    for model in test["models"]:
         yang_files.append(model["file"])
 
     ## Run yanglint
-    command = ["yanglint"] + yang_files + [config["instance"]]
+    command = ["yanglint"] + yang_files + [test["instance"]]
 
     print(" ".join(command))
 
     result = subprocess.run(command)
 
     if result.returncode == 0:
-        if config["expect_success"]:
+        if test["expect_success"]:
             print("Successful as expected")
-            return 0
+            return True
         else:
             print("Successful, but was not expected")
-            return 1
+            return False
     else:
-        if config["expect_success"]:
+        if test["expect_success"]:
             print("Failed, but success was expected")
-            return 1
+            return False
         else:
             print("Failed as expected")
-            return 0
+            return True
 
 
 def main():
@@ -48,8 +45,21 @@ def main():
 
     yaml_file = sys.argv[1]
 
-    result = run_testcase(yaml_file)
-    sys.exit(result)
+    with open(yaml_file, "r") as f:
+        config = yaml.safe_load(f)
+
+        successful = 0
+
+        for test in config["tests"]:
+            print(test["name"])
+
+            if run_testcase(test):
+                successful += 1
+
+            print()
+
+    print("{}/{} testcases successful".format(successful, len(config["tests"])))
+    sys.exit(0 if successful == len(config["tests"]) else 1)
 
 
 if __name__ == "__main__":
