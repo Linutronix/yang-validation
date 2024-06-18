@@ -26,10 +26,10 @@ EOF
 
 pandoc \
   --metadata title="Maintenance Request 0366: IEEE 802.1Qcw REVISION REQUEST on allowing non-scheduled interfaces" \
-  --metadata author="Florian Kauer (Linutronix GmbH)" \
-  --metadata author="Tobias Deiminger (Linutronix GmbH)" \
+  --metadata author="Florian Kauer (Linutronix)" \
+  --metadata author="Tobias Deiminger (Linutronix)" \
   --metadata date="June 18, 2024" \
   --metadata aspectratio="169" \
   --metadata section-titles="false" \
   --metadata fontsize="8pt" \
-  -f markdown -t beamer $TEMP_FILE --slide-level 2 -o maintenance-request-0366.pdf
+  -f markdown -t beamer $TEMP_FILE -V theme:Boadilla --slide-level 2 -o maintenance-request-0366.pdf
