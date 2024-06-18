@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2023 Linutronix GmbH
+# SPDX-License-Identifier: 0BSD
+
+name: Testtool Linting and Formatting
+on: [push]
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: pip install ruff
+      - name: Linting
+        run: ruff check scripts/
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: pip install ruff
+      - name: Formatting
+        run: ruff format --diff scripts/
+
