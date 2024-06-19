@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2024 Linutronix GmbH
+# SPDX-License-Identifier: 0BSD
+
+tests:
+  - name: Example 6.1. Carrier delay configuration - Operational State
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+    instance: ./intf-ext/6-1-carrier-delay-operational-state.xml
+    expect_success: true
+  - name: Example 6.1. Carrier delay configuration - Config
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+    instance: ./intf-ext/6-1-carrier-delay-config.xml
+    type: config
+    expect_success: true
+  - name: Example 6.2. Dampening configuration
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+    instance: ./intf-ext/6-2-dampening.xml
+    expect_success: true
+  - name: Example 6.3. MAC address configuration - Operational State Before
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
+    instance: ./intf-ext/6-3-mac-address-operational-state-before.xml
+    expect_success: true
+  - name: Example 6.3. MAC address configuration - Config
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
+    instance: ./intf-ext/6-3-mac-address-config.xml
+    type: config
+    expect_success: true
+  - name: Example 6.3. MAC address configuration - Operational State After
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
+    instance: ./intf-ext/6-3-mac-address-operational-state-after.xml
+    expect_success: true
+  - name: Example 6.4. Peer interface configuration
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+    instance: ./intf-ext/6-4-peer-interfaces.xml
+    expect_success: true
+

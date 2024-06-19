@@ -1,0 +1,24 @@
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2024 IETF Trust and the persons identified as authors of the code.  All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+  <interfaces
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces"
+    xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
+    <interface>
+      <name>eth0</name>
+      <type>ianaift:ethernetCsmacd</type>
+      <phys-address>00:00:5E:00:53:30</phys-address>
+      <ethernet-like
+        xmlns="urn:ietf:params:xml:ns:yang:ietf-if-ethernet-like">
+        <mac-address>00:00:5E:00:53:30</mac-address>
+        <bia-mac-address>00:00:5E:00:53:30</bia-mac-address>
+      </ethernet-like>
+      <oper-status>up</oper-status>
+      <statistics>
+        <discontinuity-time>2023-12-15T10:04:12.345+00:00</discontinuity-time>
+      </statistics>
+    </interface>
+  </interfaces>
