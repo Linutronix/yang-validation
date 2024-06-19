@@ -1,0 +1,30 @@
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2024 IETF Trust and the persons identified as authors of the code.  All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<interfaces
+ xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces"
+ xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"
+ xmlns:if-ext="urn:ietf:params:xml:ns:yang:ietf-if-extensions">
+  <interface>
+    <name>veth1</name>
+    <type>ianaift:propVirtual</type>
+    <if-ext:peer-interface>veth2</if-ext:peer-interface>
+    <oper-status>down</oper-status>
+    <statistics>
+      <discontinuity-time>2023-12-15T10:04:12.345+00:00</discontinuity-time>
+    </statistics>
+  </interface>
+  <interface>
+    <name>veth2</name>
+    <type>ianaift:propVirtual</type>
+    <if-ext:peer-interface>veth1</if-ext:peer-interface>
+    <oper-status>down</oper-status>
+    <statistics>
+      <discontinuity-time>2023-12-15T10:04:12.345+00:00</discontinuity-time>
+    </statistics>
+  </interface>
+</interfaces>
+
