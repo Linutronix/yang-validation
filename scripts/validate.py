@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2024 Linutronix GmbH
 # SPDX-License-Identifier: 0BSD
 
+import os
+import re
 import sys
 import yaml
 import subprocess
@@ -14,6 +16,16 @@ def run_testcase(test):
 
     for model in test["models"]:
         yang_files.append(model["file"])
+
+        # Extract module name
+        file_name = os.path.basename(model["file"])
+        module_name = re.split("@|\.", file_name)[0]
+
+        yang_files.append("-F")
+        if "features" in model:
+            yang_files.append("{}:{}".format(module_name, ",".join(model["features"])))
+        else:
+            yang_files.append("{}:{}".format(module_name, "*"))
 
     ## Run yanglint
     command = ["yanglint"]
