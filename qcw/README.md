@@ -157,39 +157,7 @@ not(count(./gate-control-entry) > ../supported-list-max)
 (count(./gate-control-entry) <= ../supported-list-max + 0)
 ```
 
-Since we have a numeric operator on the right side now:
-
-In '3.5 Numbers' of XML Path Language (XPath) Version 1.0:
-
-```
-The numeric operators convert their operands to numbers as if by calling the number function.
-```
-
-In '4.4 Number functions' of XML Path Language (XPath) Version 1.0:
-
-```
-a node-set is first converted to a string as if by a call to the string
-function and then converted in the same way as a string argument
-```
-
-In '4.2 String functions' of XML Path Language (XPath) Version 1.0:
-
-```
-A node-set is converted to a string by returning the string-value of the node in the node-set
-that is first in document order. If the node-set is empty, an empty string is returned.
-```
-
-In '4.4 Number functions' of XML Path Language (XPath) Version 1.0:
-
-```
-a string that consists of optional whitespace followed by an optional minus sign followed
-by a Number followed by whitespace is converted to the IEEE 754 number that is nearest
-(according to the IEEE 754 round-to-nearest rule) to the mathematical value represented
-by the string; any other string is converted to NaN
-```
-
-→ Unclear if empty string is 0 or NaN, but libc's strtold returns 0 without error and thus also libyang. With 0, 0 <= 0 + 0, so true. Works with libyang, but depends on implementation...
-
+was considered as potential alternative in the meantime, but was based on a bug in libyang that is now fixed (see https://github.com/CESNET/libyang/issues/2256), so this is not an option.
 
 ## Other Occurences
 
