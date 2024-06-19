@@ -16,7 +16,12 @@ def run_testcase(test):
         yang_files.append(model["file"])
 
     ## Run yanglint
-    command = ["yanglint"] + yang_files + [test["instance"]]
+    command = ["yanglint"]
+
+    if "type" in test:
+        command += ["-t", test["type"]]
+
+    command += yang_files + [test["instance"]]
 
     print(" ".join(command))
 
