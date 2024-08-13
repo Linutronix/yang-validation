@@ -1,0 +1,72 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        }
+      },
+      {
+        "name": "eth0.1",
+        "type": "iana-if-type:l2vlan",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:encapsulation": {
+          "ietf-if-vlan-encapsulation:dot1q-vlan": {
+            "outer-tag": {
+              "tag-type": "ieee802-dot1q-types:s-vlan",
+              "vlan-id": 10
+            },
+            "second-tag": {
+              "tag-type": "ieee802-dot1q-types:c-vlan",
+              "vlan-id": 20
+            }
+          }
+        },
+        "ietf-if-extensions:parent-interface": "eth0",
+        "ietf-ip:ipv6": {
+          "enabled": true,
+          "forwarding": true,
+          "address": [
+            {
+              "ip": "2001:db8:11::1",
+              "prefix-length": 48
+            }
+          ]
+        }
+      },
+      {
+        "name": "eth0.2",
+        "type": "iana-if-type:l2vlan",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:encapsulation": {
+          "ietf-if-vlan-encapsulation:dot1q-vlan": {
+            "outer-tag": {
+              "tag-type": "ieee802-dot1q-types:s-vlan",
+              "vlan-id": 11
+            }
+          }
+        },
+        "ietf-if-extensions:parent-interface": "eth0",
+        "ietf-ip:ipv6": {
+          "enabled": true,
+          "forwarding": true,
+          "address": [
+            {
+              "ip": "2001:db8:11::1",
+              "prefix-length": 48
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

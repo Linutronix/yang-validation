@@ -1,0 +1,74 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        }
+      },
+      {
+        "name": "eth0.3",
+        "type": "iana-if-type:l2vlan",
+        "ietf-if-extensions:parent-interface": "eth0",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:encapsulation": {
+          "ietf-if-flexible-encapsulation:flexible": {
+            "match": {
+              "dot1q-vlan-tagged": {
+                "outer-tag": {
+                  "tag-type": "ieee802-dot1q-types:s-vlan",
+                  "vlan-id": "10"
+                },
+                "second-tag": {
+                  "tag-type": "ieee802-dot1q-types:c-vlan",
+                  "vlan-id": "21"
+                }
+              }
+            },
+            "rewrite":{
+              "symmetrical": {
+                "dot1q-tag-rewrite": {
+                  "pop-tags": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "eth1.0",
+        "type": "iana-if-type:l2vlan",
+        "ietf-if-extensions:parent-interface": "eth0",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:encapsulation": {
+          "ietf-if-flexible-encapsulation:flexible": {
+            "match": {
+              "dot1q-vlan-tagged": {
+                "outer-tag": {
+                  "tag-type": "ieee802-dot1q-types:c-vlan",
+                  "vlan-id": "50"
+                }
+              }
+            },
+            "rewrite":{
+              "symmetrical": {
+                "dot1q-tag-rewrite": {
+                  "pop-tags": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

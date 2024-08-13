@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024 Linutronix GmbH
+# SPDX-License-Identifier: 0BSD
+
+tests:
+  - name: Example 7.1.  Layer 3 sub-interfaces with IPv6
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-vlan-encapsulation@2023-01-26.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+      - file: ./models/standard/ietf/RFC/ietf-ip.yang
+    instance: ./intf-vlan-model/7-1-layer-3-sub-interfaces-with-ipv6.json
+    expect_success: true
+  - name: Example 7.2.  Layer 2 sub-interfaces with L2VPN
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-vlan-encapsulation@2023-01-26.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+      - file: ./models/standard/ietf/RFC/ietf-ip.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-flexible-encapsulation@2023-01-26.yang
+    instance: ./intf-vlan-model/7-2-layer-2-sub-interfaces-with-l2vpn.json
+    expect_success: true
+
