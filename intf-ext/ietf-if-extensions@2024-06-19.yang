@@ -484,7 +484,8 @@ module ietf-if-extensions {
     when "derived-from(if:type, 'sub-interface') or
           derived-from-or-self(if:type, 'ianaift:l2vlan') or
           derived-from-or-self(if:type, 'ianaift:atmSubInterface') or
-          derived-from-or-self(if:type, 'ianaift:frameRelay')"  {
+          derived-from-or-self(if:type, 'ianaift:frameRelay') or
+          derived-from-or-self(if:type, 'ianaift:bridge')"  {
       description
         "Any ianaift:types that explicitly represent sub-interfaces
          or any types that derive from the sub-interface identity.";

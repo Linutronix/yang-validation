@@ -63,4 +63,12 @@ tests:
       - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
     instance: ./intf-ext/6-4-peer-interfaces.xml
     expect_success: true
+  - name: Example 6.4. Peer interface configuration via ilan interface
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+    instance: ./intf-ext/6-4-peer-interfaces-via-ilan.xml
+    expect_success: true
 
