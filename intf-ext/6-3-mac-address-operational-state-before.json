@@ -1,0 +1,21 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "phys-address": "00:00:5E:00:53:30",
+        "oper-status": "up",
+        "admin-status": "up",
+        "if-index": 1,
+        "ietf-if-ethernet-like:ethernet-like": {
+           "mac-address": "00:00:5E:00:53:30",
+           "bia-mac-address": "00:00:5E:00:53:30"
+        },
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        }
+      }
+    ]
+  }
+}

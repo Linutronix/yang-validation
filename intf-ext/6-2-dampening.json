@@ -1,0 +1,23 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "oper-status": "down",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:dampening": {
+          "half-life": 60,
+          "reuse": 750,
+          "suppress": 2000,
+          "max-suppress-time": 240,
+          "penalty": 2480,
+          "suppressed": true,
+          "time-remaining": 103
+        }
+      }
+    ]
+  }
+}

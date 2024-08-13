@@ -1,0 +1,13 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "ietf-if-ethernet-like:ethernet-like": {
+           "mac-address": "00:00:5E:00:53:30"
+        }
+      }
+    ]
+  }
+}
