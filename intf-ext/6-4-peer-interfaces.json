@@ -1,0 +1,25 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "veth1",
+        "type": "iana-if-type:propVirtual",
+        "oper-status": "down",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:peer-interface": "veth2"
+      },
+      {
+        "name": "veth2",
+        "type": "iana-if-type:propVirtual",
+        "oper-status": "down",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:peer-interface": "veth1"
+      }
+    ]
+  }
+}
+

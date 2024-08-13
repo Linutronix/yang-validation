@@ -1,0 +1,18 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "type": "iana-if-type:ethernetCsmacd",
+        "oper-status": "up",
+        "statistics": {
+          "discontinuity-time": "2023-12-15T09:04:00-05:00"
+        },
+        "ietf-if-extensions:link-flap-suppression": {
+          "down": 0,
+          "up": 50
+        }
+      }
+    ]
+  }
+}

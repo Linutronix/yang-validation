@@ -2,65 +2,64 @@
 # SPDX-License-Identifier: 0BSD
 
 tests:
-  - name: Example 6.1. Carrier delay configuration - Operational State
+  - name: Example 6.1. Carrier delay configuration - Operational State 0 50
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
         features: []
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
-    instance: ./intf-ext/6-1-carrier-delay-operational-state.xml
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+    instance: ./intf-ext/6-1-carrier-delay-0-50.json
     expect_success: true
-  - name: Example 6.1. Carrier delay configuration - Config
+  - name: Example 6.1. Carrier delay configuration - Operational State 50 1000
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
         features: []
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
-    instance: ./intf-ext/6-1-carrier-delay-config.xml
-    type: config
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+    instance: ./intf-ext/6-1-carrier-delay-50-1000.json
     expect_success: true
   - name: Example 6.2. Dampening configuration
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
         features: []
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
-    instance: ./intf-ext/6-2-dampening.xml
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+    instance: ./intf-ext/6-2-dampening.json
     expect_success: true
   - name: Example 6.3. MAC address configuration - Operational State Before
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
-        features: []
+        features: ['if-mib']
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
       - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
-    instance: ./intf-ext/6-3-mac-address-operational-state-before.xml
+    instance: ./intf-ext/6-3-mac-address-operational-state-before.json
     expect_success: true
   - name: Example 6.3. MAC address configuration - Config
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
         features: []
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
       - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
-    instance: ./intf-ext/6-3-mac-address-config.xml
+    instance: ./intf-ext/6-3-mac-address-config.json
     type: config
     expect_success: true
   - name: Example 6.3. MAC address configuration - Operational State After
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
-        features: []
+        features: ['if-mib']
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
       - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-ethernet-like@2023-01-26.yang
-    instance: ./intf-ext/6-3-mac-address-operational-state-after.xml
+    instance: ./intf-ext/6-3-mac-address-operational-state-after.json
     expect_success: true
   - name: Example 6.4. Peer interface configuration
     models:
       - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
         features: []
       - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
-      - file: ./intf-ext/ietf-if-extensions@2024-06-19.yang
-    instance: ./intf-ext/6-4-peer-interfaces.xml
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+    instance: ./intf-ext/6-4-peer-interfaces.json
     expect_success: true
 
