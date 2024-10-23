@@ -25,7 +25,7 @@ tests:
       - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-bridge.yang
       - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-stream-filters-gates.yang
       - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-stream-filters-gates-bridge.yang
-      - file: ./qcw/psfp/ieee802-dot1q-psfp@2024-06-17.yang
+      - file: ./qcw/psfp/ieee802-dot1q-psfp@2024-10-22.yang
       - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-psfp-bridge.yang
     instance: ./qcw/psfp/minimal-bridge.json
     expect_success: true

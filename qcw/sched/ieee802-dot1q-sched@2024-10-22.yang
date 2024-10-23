@@ -29,13 +29,20 @@ module ieee802-dot1q-sched {
     "This module provides for management of IEEE Std 802.1Q Bridges that
     support Scheduled Traffic Enhancements.
     
-    Copyright (C) IEEE (2023).
+    Copyright (C) IEEE (2024).
     
     This version of this YANG module is part of IEEE Std 802.1Q; see the
     standard itself for full legal notices.";
-  revision 2024-01-30 {
+  revision 2024-10-22 {
     description
-      "TODO add proper revision description";
+      "Published as part of IEEE Std 802.1Q-202X. Revised must statements 
+      allow succesful validation of non-scheduled interfaces when the 
+      module is loaded.
+      
+      The following reference statement identifies each referenced IEEE
+      Standard as updated by applicable amendments.";
+    reference
+      "IEEE Std 802.1Q Bridges and Bridged Networks: IEEE Std 802.1Q-202X.";
   }
   revision 2023-10-22 {
     description
