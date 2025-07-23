@@ -1,0 +1,280 @@
+{
+  "ietf-detnet:detnet": {
+    "app-flows": {
+      "app-flow": [
+        {
+          "name": "app-rtvideo",
+          "ingress": {
+            "interface": [
+              "enp86s0"
+            ],
+            "tsn-app-flow": {
+              "destination-mac-address": "82:ac:6e:1a:a3:58",
+              "vlan-id": 10
+            }
+          }
+        }
+      ]
+    },
+    "service": {
+      "sub-layer": [
+        {
+          "name": "ssl-rtvideo",
+          "operation": "initiation",
+          "service-protection": {
+            "protection": "replication",
+            "sequence-number-length": "long-sn"
+          },
+          "incoming": {
+            "app-flow": {
+              "flow": [
+                "app-rtvideo"
+              ]
+            }
+          },
+          "outgoing": {
+            "forwarding-sub-layer": {
+              "service-outgoing": [
+                {
+                  "index": 0,
+                  "mpls-label-stack": {
+                    "entry": [
+                      {
+                        "id": 0,
+                        "label": 555
+                      }
+                    ]
+                  },
+                  "sub-layer": [
+                    "fsl-rtvideo-A",
+                    "fsl-rtvideo-B"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "forwarding": {
+      "sub-layer": [
+        {
+          "name": "fsl-rtvideo-A",
+          "operation": "forward",
+          "outgoing": {
+            "interface": {
+              "src-ip-address": "fd02:5cb3:dba1::1",
+              "dest-ip-address": "fd02:5cb3:dba1::3",
+              "source-port": 49001,
+              "next-hop-address": "fd02:5cb3:dba1::3",
+              "outgoing-interface": "ilan0"
+            }
+          }
+        },
+        {
+          "name": "fsl-rtvideo-B",
+          "operation": "forward",
+          "outgoing": {
+            "interface": {
+              "src-ip-address": "fd02:5cb3:dba1::2",
+              "dest-ip-address": "fd02:5cb3:dba1::4",
+              "source-port": 49002,
+              "next-hop-address": "fd02:5cb3:dba1::4",
+              "outgoing-interface": "ilan0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "ieee802-dot1cb-stream-identification:stream-identity": [
+    {
+      "index": 0,
+      "handle": 1,
+      "in-facing": {
+        "input-port": [
+          "ilan0"
+        ]
+      },
+      "ip-stream-identification": {
+        "ip-source": "fd02:5cb3:dba1::1",
+        "ip-destination": "fd02:5cb3:dba1::3",
+        "next-protocol": "udp",
+        "destination-port": 49001
+      }
+    },
+    {
+      "index": 1,
+      "handle": 1,
+      "out-facing": {
+        "output-port": [
+          "enp86s1"
+        ]
+      },
+      "dmac-vlan-stream-identification": {
+        "down": {
+          "destination-mac": "48-21-0b-56-de-92",
+          "vlan": 1,
+          "priority": 7
+        }
+      }
+    },
+    {
+      "index": 2,
+      "handle": 2,
+      "in-facing": {
+        "input-port": [
+          "ilan0"
+        ]
+      },
+      "ip-stream-identification": {
+        "ip-source": "fd02:5cb3:dba1::2",
+        "ip-destination": "fd02:5cb3:dba1::4",
+        "next-protocol": "udp",
+        "destination-port": 49002
+      }
+    },
+    {
+      "index": 4,
+      "handle": 2,
+      "out-facing": {
+        "output-port": [
+          "enp86s2"
+        ]
+      },
+      "dmac-vlan-stream-identification": {
+        "down": {
+          "destination-mac": "48-21-0b-3e-31-ce",
+          "vlan": 1,
+          "priority": 7
+        }
+      }
+    }
+  ],
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "enp86s0",
+        "type": "iana-if-type:ethernetCsmacd"
+      },
+      {
+        "name": "enp86s1",
+        "type": "iana-if-type:ethernetCsmacd",
+        "ieee802-dot1q-bridge:bridge-port": {
+          "traffic-class": {
+            "traffic-class-table": {
+              "number-of-traffic-classes": 4,
+              "priority0": 0,
+              "priority1": 0,
+              "priority2": 1,
+              "priority3": 1,
+              "priority4": 2,
+              "priority5": 2,
+              "priority6": 3,
+              "priority7": 3
+            }
+          },
+          "ieee802-dot1q-sched-bridge:gate-parameter-table": {
+            "admin-control-list": {
+              "gate-control-entry": [
+                {
+                  "index": 0,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 7000000,
+                  "gate-states-value": 8
+                },
+                {
+                  "index": 1,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 10000000,
+                  "gate-states-value": 1
+                },
+                {
+                  "index": 2,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 3000000,
+                  "gate-states-value": 2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "enp86s2",
+        "type": "iana-if-type:ethernetCsmacd",
+        "ieee802-dot1q-bridge:bridge-port": {
+          "traffic-class": {
+            "traffic-class-table": {
+              "number-of-traffic-classes": 4,
+              "priority0": 0,
+              "priority1": 0,
+              "priority2": 1,
+              "priority3": 1,
+              "priority4": 2,
+              "priority5": 2,
+              "priority6": 3,
+              "priority7": 3
+            }
+          },
+          "ieee802-dot1q-sched-bridge:gate-parameter-table": {
+            "admin-control-list": {
+              "gate-control-entry": [
+                {
+                  "index": 0,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 7000000,
+                  "gate-states-value": 8
+                },
+                {
+                  "index": 1,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 10000000,
+                  "gate-states-value": 1
+                },
+                {
+                  "index": 2,
+                  "operation-name": "ieee802-dot1q-sched:set-gate-states",
+                  "time-interval-value": 3000000,
+                  "gate-states-value": 2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "ilan0",
+        "type": "iana-if-type:ilan"
+      }
+    ]
+  },
+  "ieee1588-ptp-tt:ptp": {
+    "instances": {
+      "instance": [
+        {
+          "instance-index": 1,
+          "default-ds": {
+            "clock-quality": {
+              "clock-class": "ieee1588-ptp-tt:cc-default",
+              "clock-accuracy": "ieee1588-ptp-tt:ca-time-accurate-to-gt-10-s",
+              "offset-scaled-log-variance": 65535
+            },
+            "domain-number": 0,
+            "sdo-id": 256
+          },
+          "time-properties-ds": {
+            "current-utc-offset": 37,
+            "current-utc-offset-valid": true,
+            "leap59": false,
+            "leap61": false,
+            "time-traceable": true,
+            "frequency-traceable": false,
+            "ptp-timescale": true,
+            "time-source": "ieee1588-ptp-tt:internal-oscillator"
+          }
+        }
+      ]
+    }
+  }
+}
