@@ -18,3 +18,20 @@ tests:
     instance: ./detnet/ingress.json
     type: config
     expect_success: true
+  - name: DetNet Egress
+    models:
+      - file: ./models/standard/ietf/RFC/ietf-interfaces.yang
+        features: []
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-types.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-detnet@2024-02-21.yang # TODO upload proper RFC version
+      - file: ./models/standard/ieee/published/802/ieee802-types.yang
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1cb-stream-identification.yang
+      - file: ./models/standard/iana/iana-if-type@2023-01-26.yang
+      - file: ./qcw/sched/ieee802-dot1q-sched@2024-10-22.yang # TODO upload proper Qrev version
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-sched-bridge.yang
+      - file: ./models/standard/ieee/published/802.1/ieee802-dot1q-bridge.yang
+      - file: ./models/standard/ieee/published/1588/ieee1588-ptp-tt.yang
+      - file: ./models/experimental/ietf-extracted-YANG-modules/ietf-if-extensions@2024-07-31.yang
+    instance: ./detnet/egress.json
+    type: config
+    expect_success: true
